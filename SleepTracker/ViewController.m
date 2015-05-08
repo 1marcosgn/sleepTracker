@@ -10,7 +10,12 @@
 
 int DEFAULT_TIME = 60;
 
-@interface ViewController ()
+@interface ViewController (){
+    
+    UILabel *countLabel;
+    NSTimer *timer;
+    
+}
 
 @end
 
@@ -18,7 +23,33 @@ int DEFAULT_TIME = 60;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    //Customize Navbar
+    UIColor *topBarColor = [UIColor colorWithRed:99.0f/255.0f green:148.0f/255.0f blue:207.0f/255.0f alpha:1.0];
+    self.navigationController.navigationBar.barTintColor = topBarColor;
+    
+    CGRect frame = CGRectMake(0, 0, 70, 44);
+    UILabel *label = [[UILabel alloc] initWithFrame:frame];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor whiteColor];
+    label.text = @"SleepTracker";
+    self.navigationItem.titleView = label;
+    
+    //Customize Count Label
+    countLabel = [[UILabel alloc]init];
+    countLabel.textAlignment = NSTextAlignmentCenter;
+    [countLabel setFont:[UIFont fontWithName:@"Time-Normal" size:44.0]];
+    countLabel.backgroundColor = [UIColor colorWithRed:99.0f/255.0f green:148.0f/255.0f blue:207.0f/255.0f alpha:1.0];
+    countLabel.textColor = [UIColor whiteColor];
+    countLabel.frame = CGRectMake(self.btnSleepAwake.frame.origin.x - 113, self.btnSleepAwake.frame.origin.y, self.btnSleepAwake.frame.size.width, self.btnSleepAwake.frame.size.height);
+    [countLabel setHidden:YES];
+    [self.view addSubview:countLabel];
+    
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,31 +97,80 @@ int DEFAULT_TIME = 60;
     
     self.lblInfoMessage.alpha = 0.0;
     
-    
-    
     [UIView animateWithDuration:0.5
                      animations:^{
                          
-                         
-                         
-                         self.btnSleepAwake.frame = CGRectMake(self.btnSleepAwake.frame.origin.x, self.lblInfoMessage.frame.origin.y + 20.0, self.btnSleepAwake.frame.size.width, self.btnSleepAwake.frame.size.height);
-                         
-                         
+                         self.contraintTopDistance.constant = 50;
+                         [self.view layoutIfNeeded];
                          
                      }
                      completion:^(BOOL finished) {
-                         [self.btnSleepAwake setTitle:@"Awake" forState:UIControlStateNormal];
+                         
+                         [self.btnSleepAwake setTitle:@"Wake Up" forState:UIControlStateNormal];
+                         [self.btnEmoji setUserInteractionEnabled:NO];
+                         [self.btnEmoji setImage:[UIImage imageNamed:@"sleep.png"] forState:UIControlStateNormal];
+                         
+                         [countLabel setHidden:NO];
+                         
+                         // Create timer here..
+                         [self setTimer];
+                         
                      }
-     
-     
      ];
     
+}
+
+-(void)setTimer{
     
+    timer = [NSTimer scheduledTimerWithTimeInterval: 1.0
+                                                      target: self
+                                                    selector: @selector(updateTimer)
+                                                    userInfo: nil
+                                                     repeats: YES];
+    NSLog(@"timer is:%@", timer);
+
+}
+
+-(void)updateTimer{
+    
+    int hours, minutes, seconds;
+    
+    DEFAULT_TIME++;
+    hours = DEFAULT_TIME / 3600;
+    minutes = (DEFAULT_TIME % 3600) / 60;
+    seconds = (DEFAULT_TIME % 3600) % 60;
+    
+    countLabel.text = [NSString stringWithFormat:@"%02d:%02d", minutes, seconds];
     
 }
 
 -(void)awake{
     
+    [UIView animateWithDuration:0.5
+                     animations:^{
+                         self.contraintTopDistance.constant = 221;
+                         [self.view layoutIfNeeded];
+                     }
+                     completion:^(BOOL finished) {
+                         
+                         // Store information in HealthKit...
+                         
+                         
+                         
+                         DEFAULT_TIME = 60;
+                         [self.btnEmoji setUserInteractionEnabled:YES];
+                         [self.btnEmoji setImage:[UIImage imageNamed:@"awake.png"] forState:UIControlStateNormal];
+                         [self.btnSleepAwake setTitle:@"Sleep" forState:UIControlStateNormal];
+                         
+                         self.lblInfoMessage.text = @"Sleep Analysis was recorded on your HealthKit";
+                         self.lblInfoMessage.alpha = 1.0;
+                         
+                         // Reset timer here...
+                         [countLabel setHidden:YES];
+                         [timer invalidate];
+                         [self updateTimer];
+                         
+                     }];
     
 }
 

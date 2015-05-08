@@ -18,6 +18,7 @@
 		37BE6C8D1AFC038B00F4CFDC /* awake@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37BE6C891AFC038B00F4CFDC /* awake@2x.png */; };
 		37BE6C8E1AFC038B00F4CFDC /* sleep.png in Resources */ = {isa = PBXBuildFile; fileRef = 37BE6C8A1AFC038B00F4CFDC /* sleep.png */; };
 		37BE6C8F1AFC038B00F4CFDC /* sleep@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37BE6C8B1AFC038B00F4CFDC /* sleep@2x.png */; };
+		7F2A674D1AFC8A9800EE67CD /* Time Normal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F2A674C1AFC8A9800EE67CD /* Time Normal.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		37BE6C891AFC038B00F4CFDC /* awake@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "awake@2x.png"; sourceTree = "<group>"; };
 		37BE6C8A1AFC038B00F4CFDC /* sleep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sleep.png; sourceTree = "<group>"; };
 		37BE6C8B1AFC038B00F4CFDC /* sleep@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sleep@2x.png"; sourceTree = "<group>"; };
+		7F2A674C1AFC8A9800EE67CD /* Time Normal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Time Normal.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 		37BE6C601AFBF2AF00F4CFDC /* SleepTracker */ = {
 			isa = PBXGroup;
 			children = (
+				7F2A674B1AFC8A7300EE67CD /* Resources */,
 				37BE6C871AFBFBA300F4CFDC /* images */,
 				37BE6C651AFBF2AF00F4CFDC /* AppDelegate.h */,
 				37BE6C661AFBF2AF00F4CFDC /* AppDelegate.m */,
@@ -137,6 +140,14 @@
 				37BE6C8B1AFC038B00F4CFDC /* sleep@2x.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		7F2A674B1AFC8A7300EE67CD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7F2A674C1AFC8A9800EE67CD /* Time Normal.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +233,7 @@
 				37BE6C6D1AFBF2AF00F4CFDC /* Main.storyboard in Resources */,
 				37BE6C8F1AFC038B00F4CFDC /* sleep@2x.png in Resources */,
 				37BE6C8E1AFC038B00F4CFDC /* sleep.png in Resources */,
+				7F2A674D1AFC8A9800EE67CD /* Time Normal.ttf in Resources */,
 				37BE6C8C1AFC038B00F4CFDC /* awake.png in Resources */,
 				37BE6C721AFBF2B000F4CFDC /* LaunchScreen.xib in Resources */,
 				37BE6C8D1AFC038B00F4CFDC /* awake@2x.png in Resources */,
@@ -440,6 +452,7 @@
 				37BE6C831AFBF2B000F4CFDC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37BE6C841AFBF2B000F4CFDC /* Build configuration list for PBXNativeTarget "SleepTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -448,6 +461,7 @@
 				37BE6C861AFBF2B000F4CFDC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

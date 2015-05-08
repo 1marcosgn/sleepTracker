@@ -20,5 +20,8 @@
 - (IBAction)incrementDefaultTime:(id)sender;
 - (IBAction)goSleepAwake:(id)sender;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contraintTopDistance;
+
+
 @end
 

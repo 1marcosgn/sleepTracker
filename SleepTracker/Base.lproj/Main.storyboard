@@ -51,7 +51,7 @@
                                     <constraint firstAttribute="width" constant="341" id="BJr-A6-0Rn"/>
                                     <constraint firstAttribute="height" constant="127" id="sTv-Rq-8il"/>
                                 </constraints>
-                                <string key="text">SleepTracker will track the amount of time you sleep during the nitght. For any aditinal information please send an email to m.garcia.nolasco@accenture.com</string>
+                                <string key="text">SleepTracker will track the amount of time you sleep during the night. For any aditional information please send an email to m.garcia.nolasco@accenture.com</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -61,6 +61,7 @@
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="s9J-yK-3up" secondAttribute="centerX" id="LiT-We-yvU"/>
                             <constraint firstItem="Mb1-eF-QI5" firstAttribute="top" secondItem="HYW-o9-Y0R" secondAttribute="bottom" constant="86" id="QwL-x8-6PX"/>
+                            <constraint firstItem="Mb1-eF-QI5" firstAttribute="top" secondItem="s9J-yK-3up" secondAttribute="bottom" constant="221" id="RaH-Po-EUk"/>
                             <constraint firstAttribute="centerX" secondItem="Mb1-eF-QI5" secondAttribute="centerX" id="SI8-yM-9gM"/>
                             <constraint firstAttribute="centerX" secondItem="HYW-o9-Y0R" secondAttribute="centerX" id="VJL-Dr-RA5"/>
                             <constraint firstItem="HYW-o9-Y0R" firstAttribute="top" secondItem="s9J-yK-3up" secondAttribute="bottom" constant="8" id="ovv-zp-kKn"/>
@@ -68,11 +69,17 @@
                             <constraint firstAttribute="centerX" secondItem="HYW-o9-Y0R" secondAttribute="centerX" id="uRb-ib-Qc4"/>
                             <constraint firstAttribute="centerX" secondItem="HYW-o9-Y0R" secondAttribute="centerX" id="xD1-hG-Zg6"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="QwL-x8-6PX"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="NiA-5x-B3A"/>
                     <connections>
                         <outlet property="btnEmoji" destination="s9J-yK-3up" id="l1p-iw-JMh"/>
                         <outlet property="btnSleepAwake" destination="Mb1-eF-QI5" id="SoY-OP-pgg"/>
+                        <outlet property="contraintTopDistance" destination="RaH-Po-EUk" id="bIg-JO-WVf"/>
                         <outlet property="lblInfoMessage" destination="HYW-o9-Y0R" id="f3x-GW-7Sv"/>
                     </connections>
                 </viewController>
