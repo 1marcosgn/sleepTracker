@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IyU-Sd-qkz">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +15,89 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9J-yK-3up">
+                                <rect key="frame" x="230" y="88" width="140" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="B7B-aC-B2d"/>
+                                    <constraint firstAttribute="width" constant="140" id="vh3-zm-Gwj"/>
+                                </constraints>
+                                <state key="normal" image="awake.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="incrementDefaultTime:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="E0Z-IT-WP6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mb1-eF-QI5">
+                                <rect key="frame" x="130" y="449" width="341" height="61"/>
+                                <color key="backgroundColor" red="0.38772659102940427" green="0.58082711166948608" blue="0.81101268221104228" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="9kr-iA-uz1"/>
+                                    <constraint firstAttribute="width" constant="341" id="dYR-Q6-Gsc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
+                                <state key="normal" title="Sleep">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goSleepAwake:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8E8-RN-Hx2"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYW-o9-Y0R">
+                                <rect key="frame" x="130" y="236" width="341" height="127"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="341" id="BJr-A6-0Rn"/>
+                                    <constraint firstAttribute="height" constant="127" id="sTv-Rq-8il"/>
+                                </constraints>
+                                <string key="text">SleepTracker will track the amount of time you sleep during the nitght. For any aditinal information please send an email to m.garcia.nolasco@accenture.com</string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="s9J-yK-3up" secondAttribute="centerX" id="LiT-We-yvU"/>
+                            <constraint firstItem="Mb1-eF-QI5" firstAttribute="top" secondItem="HYW-o9-Y0R" secondAttribute="bottom" constant="86" id="QwL-x8-6PX"/>
+                            <constraint firstAttribute="centerX" secondItem="Mb1-eF-QI5" secondAttribute="centerX" id="SI8-yM-9gM"/>
+                            <constraint firstAttribute="centerX" secondItem="HYW-o9-Y0R" secondAttribute="centerX" id="VJL-Dr-RA5"/>
+                            <constraint firstItem="HYW-o9-Y0R" firstAttribute="top" secondItem="s9J-yK-3up" secondAttribute="bottom" constant="8" id="ovv-zp-kKn"/>
+                            <constraint firstAttribute="centerY" secondItem="HYW-o9-Y0R" secondAttribute="centerY" id="uFd-6W-1gU"/>
+                            <constraint firstAttribute="centerX" secondItem="HYW-o9-Y0R" secondAttribute="centerX" id="uRb-ib-Qc4"/>
+                            <constraint firstAttribute="centerX" secondItem="HYW-o9-Y0R" secondAttribute="centerX" id="xD1-hG-Zg6"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="NiA-5x-B3A"/>
+                    <connections>
+                        <outlet property="btnEmoji" destination="s9J-yK-3up" id="l1p-iw-JMh"/>
+                        <outlet property="btnSleepAwake" destination="Mb1-eF-QI5" id="SoY-OP-pgg"/>
+                        <outlet property="lblInfoMessage" destination="HYW-o9-Y0R" id="f3x-GW-7Sv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1418" y="199"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HVh-zM-xvy">
+            <objects>
+                <navigationController id="IyU-Sd-qkz" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ykp-Y4-m4t">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="R17-Qe-iM8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hfg-5m-GYD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="690" y="199"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="awake.png" width="160" height="160"/>
+    </resources>
 </document>

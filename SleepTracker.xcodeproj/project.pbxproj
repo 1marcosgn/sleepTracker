@@ -14,6 +14,10 @@
 		37BE6C6F1AFBF2B000F4CFDC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37BE6C6E1AFBF2B000F4CFDC /* Images.xcassets */; };
 		37BE6C721AFBF2B000F4CFDC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37BE6C701AFBF2B000F4CFDC /* LaunchScreen.xib */; };
 		37BE6C7E1AFBF2B000F4CFDC /* SleepTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BE6C7D1AFBF2B000F4CFDC /* SleepTrackerTests.m */; };
+		37BE6C8C1AFC038B00F4CFDC /* awake.png in Resources */ = {isa = PBXBuildFile; fileRef = 37BE6C881AFC038B00F4CFDC /* awake.png */; };
+		37BE6C8D1AFC038B00F4CFDC /* awake@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37BE6C891AFC038B00F4CFDC /* awake@2x.png */; };
+		37BE6C8E1AFC038B00F4CFDC /* sleep.png in Resources */ = {isa = PBXBuildFile; fileRef = 37BE6C8A1AFC038B00F4CFDC /* sleep.png */; };
+		37BE6C8F1AFC038B00F4CFDC /* sleep@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37BE6C8B1AFC038B00F4CFDC /* sleep@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,10 @@
 		37BE6C771AFBF2B000F4CFDC /* SleepTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SleepTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37BE6C7C1AFBF2B000F4CFDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37BE6C7D1AFBF2B000F4CFDC /* SleepTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SleepTrackerTests.m; sourceTree = "<group>"; };
+		37BE6C881AFC038B00F4CFDC /* awake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awake.png; sourceTree = "<group>"; };
+		37BE6C891AFC038B00F4CFDC /* awake@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "awake@2x.png"; sourceTree = "<group>"; };
+		37BE6C8A1AFC038B00F4CFDC /* sleep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sleep.png; sourceTree = "<group>"; };
+		37BE6C8B1AFC038B00F4CFDC /* sleep@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sleep@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +89,7 @@
 		37BE6C601AFBF2AF00F4CFDC /* SleepTracker */ = {
 			isa = PBXGroup;
 			children = (
+				37BE6C871AFBFBA300F4CFDC /* images */,
 				37BE6C651AFBF2AF00F4CFDC /* AppDelegate.h */,
 				37BE6C661AFBF2AF00F4CFDC /* AppDelegate.m */,
 				37BE6C681AFBF2AF00F4CFDC /* ViewController.h */,
@@ -117,6 +126,17 @@
 				37BE6C7C1AFBF2B000F4CFDC /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		37BE6C871AFBFBA300F4CFDC /* images */ = {
+			isa = PBXGroup;
+			children = (
+				37BE6C881AFC038B00F4CFDC /* awake.png */,
+				37BE6C891AFC038B00F4CFDC /* awake@2x.png */,
+				37BE6C8A1AFC038B00F4CFDC /* sleep.png */,
+				37BE6C8B1AFC038B00F4CFDC /* sleep@2x.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,7 +220,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				37BE6C6D1AFBF2AF00F4CFDC /* Main.storyboard in Resources */,
+				37BE6C8F1AFC038B00F4CFDC /* sleep@2x.png in Resources */,
+				37BE6C8E1AFC038B00F4CFDC /* sleep.png in Resources */,
+				37BE6C8C1AFC038B00F4CFDC /* awake.png in Resources */,
 				37BE6C721AFBF2B000F4CFDC /* LaunchScreen.xib in Resources */,
+				37BE6C8D1AFC038B00F4CFDC /* awake@2x.png in Resources */,
 				37BE6C6F1AFBF2B000F4CFDC /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
