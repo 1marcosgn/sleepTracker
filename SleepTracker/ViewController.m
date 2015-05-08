@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "mySingleton.h"
+#import <HealthKit/HealthKit.h>
 
 int DEFAULT_TIME = 60;
 
@@ -14,6 +16,7 @@ int DEFAULT_TIME = 60;
     
     UILabel *countLabel;
     NSTimer *timer;
+    HKHealthStore *healthStore;
     
 }
 
@@ -23,6 +26,9 @@ int DEFAULT_TIME = 60;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    mySingleton *singleton = [mySingleton sharedSinleton];
+    healthStore = singleton.healthStoreGlobal;
     
     //Customize Navbar
     UIColor *topBarColor = [UIColor colorWithRed:99.0f/255.0f green:148.0f/255.0f blue:207.0f/255.0f alpha:1.0];
@@ -154,7 +160,7 @@ int DEFAULT_TIME = 60;
                      completion:^(BOOL finished) {
                          
                          // Store information in HealthKit...
-                         
+                         [self createNewSleepAnalysisRegister];
                          
                          
                          DEFAULT_TIME = 60;
@@ -171,6 +177,40 @@ int DEFAULT_TIME = 60;
                          [self updateTimer];
                          
                      }];
+    
+}
+
+
+-(void)createNewSleepAnalysisRegister{
+    
+    // Create an instance of HKCategoryType
+    // to specify the data type that it's going to be updated
+    HKCategoryType *hkCategoryType = [HKCategoryType categoryTypeForIdentifier:HKCategoryTypeIdentifierSleepAnalysis];
+    NSDate *startDate = [NSDate date];
+    NSDate *endDate = [self getEndDate];
+    
+    // The value has to be selected between two options 'HKCategoryValueSleepAnalysisAsleep' or 'HKCategoryValueSleepAnalysisInBed'
+    // HealthKit uses two or more samples with overlapping times.
+    HKCategorySample *sleepSample = [HKCategorySample categorySampleWithType:hkCategoryType
+                                                                       value:HKCategoryValueSleepAnalysisAsleep
+                                                                   startDate:startDate
+                                                                     endDate:endDate];
+    
+    //Update the sleep activity in the health store
+    [healthStore saveObject:sleepSample withCompletion:^(BOOL success, NSError *error){
+        
+        NSLog(@"Sleep activity stored");
+        
+    }];
+    
+    
+}
+
+-(NSDate*)getEndDate{
+    
+    NSDate *currentDate = [NSDate date];
+    NSDate *datePlus = [currentDate dateByAddingTimeInterval:DEFAULT_TIME];
+    return datePlus;
     
 }
 

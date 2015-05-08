@@ -19,6 +19,8 @@
 		37BE6C8E1AFC038B00F4CFDC /* sleep.png in Resources */ = {isa = PBXBuildFile; fileRef = 37BE6C8A1AFC038B00F4CFDC /* sleep.png */; };
 		37BE6C8F1AFC038B00F4CFDC /* sleep@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37BE6C8B1AFC038B00F4CFDC /* sleep@2x.png */; };
 		7F2A674D1AFC8A9800EE67CD /* Time Normal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F2A674C1AFC8A9800EE67CD /* Time Normal.ttf */; };
+		7F2A67511AFC934100EE67CD /* mySingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2A67501AFC934100EE67CD /* mySingleton.m */; };
+		7F2A67541AFC938800EE67CD /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F2A67531AFC938800EE67CD /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,10 @@
 		37BE6C8A1AFC038B00F4CFDC /* sleep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sleep.png; sourceTree = "<group>"; };
 		37BE6C8B1AFC038B00F4CFDC /* sleep@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sleep@2x.png"; sourceTree = "<group>"; };
 		7F2A674C1AFC8A9800EE67CD /* Time Normal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Time Normal.ttf"; sourceTree = "<group>"; };
+		7F2A674F1AFC934100EE67CD /* mySingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mySingleton.h; sourceTree = "<group>"; };
+		7F2A67501AFC934100EE67CD /* mySingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mySingleton.m; sourceTree = "<group>"; };
+		7F2A67521AFC938800EE67CD /* SleepTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SleepTracker.entitlements; sourceTree = "<group>"; };
+		7F2A67531AFC938800EE67CD /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F2A67541AFC938800EE67CD /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +80,7 @@
 		37BE6C551AFBF2AF00F4CFDC = {
 			isa = PBXGroup;
 			children = (
+				7F2A67531AFC938800EE67CD /* HealthKit.framework */,
 				37BE6C601AFBF2AF00F4CFDC /* SleepTracker */,
 				37BE6C7A1AFBF2B000F4CFDC /* SleepTrackerTests */,
 				37BE6C5F1AFBF2AF00F4CFDC /* Products */,
@@ -91,6 +99,8 @@
 		37BE6C601AFBF2AF00F4CFDC /* SleepTracker */ = {
 			isa = PBXGroup;
 			children = (
+				7F2A67521AFC938800EE67CD /* SleepTracker.entitlements */,
+				7F2A674E1AFC933300EE67CD /* Utilities */,
 				7F2A674B1AFC8A7300EE67CD /* Resources */,
 				37BE6C871AFBFBA300F4CFDC /* images */,
 				37BE6C651AFBF2AF00F4CFDC /* AppDelegate.h */,
@@ -150,6 +160,15 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		7F2A674E1AFC933300EE67CD /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7F2A674F1AFC934100EE67CD /* mySingleton.h */,
+				7F2A67501AFC934100EE67CD /* mySingleton.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -199,6 +218,12 @@
 				TargetAttributes = {
 					37BE6C5D1AFBF2AF00F4CFDC = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = YXC4836V89;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 					37BE6C761AFBF2B000F4CFDC = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -256,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37BE6C6A1AFBF2AF00F4CFDC /* ViewController.m in Sources */,
+				7F2A67511AFC934100EE67CD /* mySingleton.m in Sources */,
 				37BE6C671AFBF2AF00F4CFDC /* AppDelegate.m in Sources */,
 				37BE6C641AFBF2AF00F4CFDC /* main.m in Sources */,
 			);
@@ -383,9 +409,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SleepTracker/SleepTracker.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SleepTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -393,9 +423,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SleepTracker/SleepTracker.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SleepTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

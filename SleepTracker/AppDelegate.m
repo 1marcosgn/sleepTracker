@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import <HealthKit/HealthKit.h>
+#import "mySingleton.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,46 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    //Check Availability
+    if (NSClassFromString(@"HKHealthStore") && [HKHealthStore isHealthDataAvailable]) {
+        
+        
+        //Request Authorization
+        HKHealthStore *healthStore = [[HKHealthStore alloc]init];
+        
+        //Share Sleep Analysis
+        NSSet *shareObjectTypes = [NSSet setWithObjects:
+                                   
+                                   [HKObjectType categoryTypeForIdentifier:HKCategoryTypeIdentifierSleepAnalysis],
+                                   
+                                   nil];
+        
+        
+        //Request access
+        [healthStore requestAuthorizationToShareTypes:shareObjectTypes
+                                            readTypes:nil
+                                           completion:^(BOOL success, NSError *error){
+                                               
+                                               if (success == YES) {
+                                                   //Store 'healthStore' in a Singleton
+                                                   mySingleton *Singleton = [mySingleton sharedSinleton];
+                                                   Singleton.healthStoreGlobal = healthStore;
+                                               }
+                                               else{
+                                                   //Determine if it was an error or if the
+                                                   //user just canceled the authorization request
+                                               }
+                                               
+                                           }
+         
+         ];
+        
+    }
+    else{
+        NSLog(@"HealthKit not available =(...");
+    }
+    
     return YES;
 }
 
